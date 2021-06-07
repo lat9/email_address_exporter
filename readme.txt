@@ -1,8 +1,8 @@
 Add-On: Email Address Exporter Admin Tool
-Designed for: Zen Cart v1.5.5+ 
+Designed for: Zen Cart v1.5.6+ 
 
 Created by: DrByte
-Some revisions added by: Swifty8078, Ooba_Scott, That Software Guy 
+Some revisions added by: Swifty8078, Ooba_Scott, That Software Guy and lat9
 
 Donations:  Please support ZenCart!  paypal@zen-cart.com  - Thank you!
 ===========================================================
@@ -18,18 +18,13 @@ As to export formats, you can choose from CSV, TXT (tab-delimited), XML, or HTML
 You can select any of the audiences available in your cart, using the pulldown menu provided.
 The most common audience would be Newsletter recipients.
 
-If you choose the "Save To File On Server" option, you can set the "Destination Folder" by editing the /admin/includes/extra_datafiles/email_export.php and set the DIR_FS_EMAIL_EXPORT to the desired destination.
-The default setting (for simplicity) is the /logs/ folder.
-
-Whatever folder you point this to must be writable so that the webserver can write to files in this folder.
-When saving to file, if a file of the same name already exists, it will be overwritten. No backups.
+If you choose the "Save To File On Server" option, the file created is saved in the admin's /backups folder, which must be
+writeable.  When saving to file, if a file of the same name already exists, it will be overwritten.
 
 ===========================================================
 
 INSTALLATION:  
-Upload all files as-is to your server, retaining folder structures.  ie: after unzipping this file you have an "admin" folder on your PC, with several folders/files in it. On your server you also have an "admin" folder (perhaps renamed to something else for security). Simply upload the files from your PC's "admin" folder to your server's (renamed) "admin" folder, putting files into the same folders on the server as you find them on your PC.
-
-(NOTE: Skip the /admin/includes/boxes/.. folder if you are using ZC v1.5.0 or newer)
+Upload all files as-is to your server, retaining folder structures, i.e. after unzipping this file you have an "admin" folder on your PC, with several folders/files in it. On your server you also have an "admin" folder (perhaps renamed to something else for security). Simply upload the files from your PC's "admin" folder to your server's (renamed) "admin" folder, putting files into the same folders on the server as you find them on your PC.
 
 In your Admin permissions panel, grant access to appropriate users using the Admin Access Management screen.
 
@@ -50,3 +45,6 @@ Nov 2013 - DrByte added a fix to prevent a database error from occurring when yo
 Dec 2013 - DrByte removed debug code left in previous update.
 Dec 2014 - tidying
 Aug 2017 - included telphone and company fields in export (requires them to be in the db query that feeds the exporter though). Also forced limits on filenames used for exporting.
+20210607-lat9, v1.5.6a
+    - Removed /admin/boxes (pre-zc15x use only).
+    - Output file now saved in /admin/backups

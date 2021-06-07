@@ -22,9 +22,6 @@
   require('includes/application_top.php');
 
 
-// change destination here for path when using "save to file on server"
-if (!defined('DIR_FS_EMAIL_EXPORT')) define('DIR_FS_EMAIL_EXPORT',DIR_FS_CATALOG.'images/uploads/');
-
   $query_name = '';
 
   $action = (isset($_GET['action']) ? $_GET['action'] : '');
@@ -213,7 +210,7 @@ if (!defined('DIR_FS_EMAIL_EXPORT')) define('DIR_FS_EMAIL_EXPORT',DIR_FS_CATALOG
         }
       } else { //write to file
         //open output file for writing
-        $f=fopen(DIR_FS_EMAIL_EXPORT.$file,'w');
+        $f=fopen(DIR_FS_ADMIN . 'backups/'.$file,'w');
         fwrite($f,$exporter_output);
         fclose($f);
         unset($f);
@@ -299,7 +296,7 @@ if (!defined('DIR_FS_EMAIL_EXPORT')) define('DIR_FS_EMAIL_EXPORT',DIR_FS_CATALOG
           <tr>
             <td class="main"><?php echo TEXT_EMAIL_EXPORT_SAVETOFILE; ?><br />
 <?php echo zen_draw_checkbox_field('savetofile', '1', $save_to_file_checked);
-      echo TEXT_EMAIL_EXPORT_DEST . ' ' .DIR_FS_EMAIL_EXPORT; ?></td>
+      echo TEXT_EMAIL_EXPORT_DEST . ' ' .DIR_FS_ADMIN . 'backups/'; ?></td>
           </tr>
           <tr>
             <td class="main" align="right"><?php echo zen_image_submit('button_save.gif', IMAGE_SAVE) . '&nbsp;&nbsp;<a href="' . zen_href_link(FILENAME_DEFAULT) . '">' . zen_image_button('button_cancel.gif', IMAGE_CANCEL) . '</a>'; ?></td>
