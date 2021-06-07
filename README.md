@@ -1,2 +1,2 @@
-# email_address_exporter
-A copy of the "Email Address Exporter" for Zen Cart
+# Email Address Exporter for Zen Cart
+Zen Cart Download Link: https://www.zen-cart.com/downloads.php?do=file&id=6
